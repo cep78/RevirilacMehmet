@@ -19,14 +19,14 @@ namespace REVIR
 
         private void button1_Click(object sender, EventArgs e)
         {
-          //
+            //
 
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-            
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -46,6 +46,11 @@ namespace REVIR
             anasayfa anasayfaform = new anasayfa();
             anasayfaform.Show();
             this.Hide();
+        }
+
+        private void kapatDugmesi_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
