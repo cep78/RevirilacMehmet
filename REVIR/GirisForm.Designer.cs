@@ -52,9 +52,9 @@
             this.girisFormuGrupKutusu.Controls.Add(this.kullaniciAdiEtiketi);
             this.girisFormuGrupKutusu.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.girisFormuGrupKutusu.Location = new System.Drawing.Point(273, 36);
-            this.girisFormuGrupKutusu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.girisFormuGrupKutusu.Margin = new System.Windows.Forms.Padding(6);
             this.girisFormuGrupKutusu.Name = "girisFormuGrupKutusu";
-            this.girisFormuGrupKutusu.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.girisFormuGrupKutusu.Padding = new System.Windows.Forms.Padding(6);
             this.girisFormuGrupKutusu.Size = new System.Drawing.Size(553, 228);
             this.girisFormuGrupKutusu.TabIndex = 7;
             this.girisFormuGrupKutusu.TabStop = false;
@@ -72,7 +72,7 @@
             this.kapatDugmesi.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.kapatDugmesi.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.kapatDugmesi.Location = new System.Drawing.Point(123, 136);
-            this.kapatDugmesi.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.kapatDugmesi.Margin = new System.Windows.Forms.Padding(6);
             this.kapatDugmesi.Name = "kapatDugmesi";
             this.kapatDugmesi.Size = new System.Drawing.Size(170, 80);
             this.kapatDugmesi.TabIndex = 3;
@@ -90,7 +90,7 @@
             this.girisDugmesi.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.girisDugmesi.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.girisDugmesi.Location = new System.Drawing.Point(371, 136);
-            this.girisDugmesi.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.girisDugmesi.Margin = new System.Windows.Forms.Padding(6);
             this.girisDugmesi.Name = "girisDugmesi";
             this.girisDugmesi.Size = new System.Drawing.Size(170, 80);
             this.girisDugmesi.TabIndex = 2;
@@ -101,19 +101,22 @@
             // sifreMetinKutusu
             // 
             this.sifreMetinKutusu.Location = new System.Drawing.Point(123, 98);
-            this.sifreMetinKutusu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.sifreMetinKutusu.Margin = new System.Windows.Forms.Padding(6);
             this.sifreMetinKutusu.Name = "sifreMetinKutusu";
             this.sifreMetinKutusu.PasswordChar = '*';
             this.sifreMetinKutusu.Size = new System.Drawing.Size(418, 26);
             this.sifreMetinKutusu.TabIndex = 1;
+            this.sifreMetinKutusu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sifreMetinKutusu_KeyPress);
             // 
             // kullaniciAdiMetinKutusu
             // 
             this.kullaniciAdiMetinKutusu.Location = new System.Drawing.Point(123, 60);
-            this.kullaniciAdiMetinKutusu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.kullaniciAdiMetinKutusu.Margin = new System.Windows.Forms.Padding(6);
+            this.kullaniciAdiMetinKutusu.MaxLength = 8;
             this.kullaniciAdiMetinKutusu.Name = "kullaniciAdiMetinKutusu";
             this.kullaniciAdiMetinKutusu.Size = new System.Drawing.Size(418, 26);
             this.kullaniciAdiMetinKutusu.TabIndex = 0;
+            this.kullaniciAdiMetinKutusu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.kullaniciAdiMetinKutusu_KeyPress);
             // 
             // sifreEtiketi
             // 
@@ -165,6 +168,7 @@
             this.Name = "GirisForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Revir İlaç Takip: Giriş";
+            this.Load += new System.EventHandler(this.GirisForm_Load);
             this.girisFormuGrupKutusu.ResumeLayout(false);
             this.girisFormuGrupKutusu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
