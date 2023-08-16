@@ -46,21 +46,27 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.verilenadettextbox = new System.Windows.Forms.TextBox();
             this.secContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.secToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.verilenadettextbox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Secilanilacadi = new System.Windows.Forms.TextBox();
+            this.Secilenilacdozu = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.kayittarihi = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.hukumlubilgipanel.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.secContextMenuStrip.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.secContextMenuStrip.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -235,45 +241,6 @@
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(309, 13);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(444, 444);
-            this.panel2.TabIndex = 8;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.dateTimePicker1);
-            this.panel4.Controls.Add(this.verilenadettextbox);
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.button1);
-            this.panel4.Location = new System.Drawing.Point(759, 13);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(413, 441);
-            this.panel4.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 14);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "H-T Verilen İlaç Adedi";
-            // 
-            // verilenadettextbox
-            // 
-            this.verilenadettextbox.Location = new System.Drawing.Point(133, 10);
-            this.verilenadettextbox.MaxLength = 2;
-            this.verilenadettextbox.Name = "verilenadettextbox";
-            this.verilenadettextbox.Size = new System.Drawing.Size(100, 20);
-            this.verilenadettextbox.TabIndex = 7;
-            this.verilenadettextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verilenadettextbox_KeyPress);
-            // 
             // secContextMenuStrip
             // 
             this.secContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -285,16 +252,30 @@
             // secToolStripMenuItem
             // 
             this.secToolStripMenuItem.Name = "secToolStripMenuItem";
-            this.secToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.secToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.secToolStripMenuItem.Text = "Sec";
             this.secToolStripMenuItem.Click += new System.EventHandler(this.secToolStripMenuItem_Click);
             // 
-            // dateTimePicker1
+            // panel2
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(133, 43);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 8;
+            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Location = new System.Drawing.Point(309, 13);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(444, 444);
+            this.panel2.TabIndex = 8;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.kayittarihi);
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.verilenadettextbox);
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.button1);
+            this.panel4.Location = new System.Drawing.Point(759, 13);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(413, 441);
+            this.panel4.TabIndex = 9;
             // 
             // label7
             // 
@@ -305,11 +286,88 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "İlacın Verildiği Tarih";
             // 
+            // verilenadettextbox
+            // 
+            this.verilenadettextbox.Location = new System.Drawing.Point(133, 10);
+            this.verilenadettextbox.MaxLength = 2;
+            this.verilenadettextbox.Name = "verilenadettextbox";
+            this.verilenadettextbox.Size = new System.Drawing.Size(100, 20);
+            this.verilenadettextbox.TabIndex = 7;
+            this.verilenadettextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verilenadettextbox_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 14);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(110, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "H-T Verilen İlaç Adedi";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.Secilenilacdozu);
+            this.groupBox1.Controls.Add(this.Secilanilacadi);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Location = new System.Drawing.Point(12, 227);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(291, 106);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Secilen İlac Bilgi";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 23);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(42, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "İlac Adı";
+            // 
+            // Secilanilacadi
+            // 
+            this.Secilanilacadi.Enabled = false;
+            this.Secilanilacadi.Location = new System.Drawing.Point(72, 20);
+            this.Secilanilacadi.Name = "Secilanilacadi";
+            this.Secilanilacadi.Size = new System.Drawing.Size(184, 20);
+            this.Secilanilacadi.TabIndex = 1;
+            // 
+            // Secilenilacdozu
+            // 
+            this.Secilenilacdozu.Enabled = false;
+            this.Secilenilacdozu.Location = new System.Drawing.Point(72, 59);
+            this.Secilenilacdozu.Name = "Secilenilacdozu";
+            this.Secilenilacdozu.Size = new System.Drawing.Size(184, 20);
+            this.Secilenilacdozu.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(9, 65);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 13);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "İlac Dozu";
+            // 
+            // kayittarihi
+            // 
+            this.kayittarihi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.kayittarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.kayittarihi.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.kayittarihi.Location = new System.Drawing.Point(133, 43);
+            this.kayittarihi.Name = "kayittarihi";
+            this.kayittarihi.Size = new System.Drawing.Size(249, 20);
+            this.kayittarihi.TabIndex = 21;
+            this.kayittarihi.Value = new System.DateTime(2023, 5, 28, 14, 35, 30, 0);
+            // 
             // htilactakip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 661);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
@@ -328,10 +386,12 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.secContextMenuStrip.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.secContextMenuStrip.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -362,6 +422,11 @@
         private System.Windows.Forms.ContextMenuStrip secContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem secToolStripMenuItem;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox Secilenilacdozu;
+        private System.Windows.Forms.TextBox Secilanilacadi;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker kayittarihi;
     }
 }

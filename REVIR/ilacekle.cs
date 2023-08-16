@@ -216,20 +216,29 @@ namespace REVIR
 
         private void ilacguncelle_buton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("İlac Adını ve Dozunu Güncelleme yapabilirsiniz");
-            string sorgu = "Update ilac SET ad=+'" + ilacadi.Text + "',doz=" + doz.Text + "  where id=" + secilenilacid;
-            komut = new OleDbCommand(sorgu, baglanti);
-            baglanti.Open();
+            try
+            {
+                MessageBox.Show("İlac Adını ve Dozunu Güncelleme yapabilirsiniz");
+                string sorgu = "Update ilac SET ad=+'" + ilacadi.Text + "',doz=" + doz.Text + "  where id=" + secilenilacid;
+                komut = new OleDbCommand(sorgu, baglanti);
+                baglanti.Open();
 
-            if (komut.ExecuteNonQuery() == 1)//the insert succeded
-            {
-                MessageBox.Show("Kayıt Başarı Bir Şekilde Güncellendi");
-                temizle();
+                if (komut.ExecuteNonQuery() == 1)//the insert succeded
+                {
+                    MessageBox.Show("Kayıt Başarı Bir Şekilde Güncellendi");
+                    temizle();
+                }
+                else
+                {
+                    MessageBox.Show("Kayıt güncelleme yapılmadı");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Kayıt güncelleme yapılmadı");
+
+                MessageBox.Show(ex.Message.ToString());
             }
+          
         }
 
         private void ilacsil_buton_Click(object sender, EventArgs e)
