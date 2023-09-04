@@ -106,6 +106,12 @@
     <Compile Include="GirisForm.Designer.cs">
       <DependentUpon>GirisForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="gunlukilac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gunlukilac.Designer.cs">
+      <DependentUpon>gunlukilac.cs</DependentUpon>
+    </Compile>
     <Compile Include="htilactakip.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GirisForm.resx">
       <DependentUpon>GirisForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gunlukilac.resx">
+      <DependentUpon>gunlukilac.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="htilactakip.resx">
       <DependentUpon>htilactakip.cs</DependentUpon>

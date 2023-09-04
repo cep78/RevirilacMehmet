@@ -36,5 +36,12 @@ namespace REVIR
             hukumluilactakip.Show();
             this.Hide();
         }
+
+        private void gunlukilacToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gunlukilac gunlukilac = new gunlukilac();
+            gunlukilac.Show();
+            this.Hide();
+        }
     }
 }

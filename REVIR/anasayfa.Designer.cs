@@ -30,10 +30,11 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.depoyaİlaçEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hTİlacTakipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.hTİlacTakipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gunlukilacToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -43,7 +44,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.depoyaİlaçEkleToolStripMenuItem,
-            this.hTİlacTakipToolStripMenuItem});
+            this.hTİlacTakipToolStripMenuItem,
+            this.gunlukilacToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1184, 24);
@@ -56,6 +58,13 @@
             this.depoyaİlaçEkleToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
             this.depoyaİlaçEkleToolStripMenuItem.Text = "Depoya İlaç Ekle";
             this.depoyaİlaçEkleToolStripMenuItem.Click += new System.EventHandler(this.depoyaİlaçEkleToolStripMenuItem_Click);
+            // 
+            // hTİlacTakipToolStripMenuItem
+            // 
+            this.hTİlacTakipToolStripMenuItem.Name = "hTİlacTakipToolStripMenuItem";
+            this.hTİlacTakipToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.hTİlacTakipToolStripMenuItem.Text = "H/T  ilac takip";
+            this.hTİlacTakipToolStripMenuItem.Click += new System.EventHandler(this.hTİlacTakipToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -93,12 +102,12 @@
             this.dataGridView1.Size = new System.Drawing.Size(1147, 411);
             this.dataGridView1.TabIndex = 0;
             // 
-            // hTİlacTakipToolStripMenuItem
+            // gunlukilacToolStripMenuItem
             // 
-            this.hTİlacTakipToolStripMenuItem.Name = "hTİlacTakipToolStripMenuItem";
-            this.hTİlacTakipToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
-            this.hTİlacTakipToolStripMenuItem.Text = "H/T  ilac takip";
-            this.hTİlacTakipToolStripMenuItem.Click += new System.EventHandler(this.hTİlacTakipToolStripMenuItem_Click);
+            this.gunlukilacToolStripMenuItem.Name = "gunlukilacToolStripMenuItem";
+            this.gunlukilacToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.gunlukilacToolStripMenuItem.Text = "Gunlukilac";
+            this.gunlukilacToolStripMenuItem.Click += new System.EventHandler(this.gunlukilacToolStripMenuItem_Click);
             // 
             // anasayfa
             // 
@@ -131,5 +140,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripMenuItem hTİlacTakipToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gunlukilacToolStripMenuItem;
     }
 }
