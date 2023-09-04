@@ -50,15 +50,21 @@
             this.secToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.ogundekullanimadettext = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.ogunsayisicombo = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.ilacbaslangictarihi = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.verilenadettextbox = new System.Windows.Forms.TextBox();
+            this.yazilanadettextbox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.Secilanilacadi = new System.Windows.Forms.TextBox();
-            this.Secilenilacdozu = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.kayittarihi = new System.Windows.Forms.DateTimePicker();
+            this.Secilenilacdozu = new System.Windows.Forms.TextBox();
+            this.Secilanilacadi = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.ilacbitistarihi = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.hukumlubilgipanel.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -219,7 +225,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(20, 81);
+            this.button1.Location = new System.Drawing.Point(17, 250);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(338, 64);
             this.button1.TabIndex = 6;
@@ -267,9 +273,15 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.kayittarihi);
+            this.panel4.Controls.Add(this.ilacbitistarihi);
+            this.panel4.Controls.Add(this.label13);
+            this.panel4.Controls.Add(this.ogundekullanimadettext);
+            this.panel4.Controls.Add(this.label12);
+            this.panel4.Controls.Add(this.ogunsayisicombo);
+            this.panel4.Controls.Add(this.label11);
+            this.panel4.Controls.Add(this.ilacbaslangictarihi);
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.verilenadettextbox);
+            this.panel4.Controls.Add(this.yazilanadettextbox);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.button1);
             this.panel4.Location = new System.Drawing.Point(759, 13);
@@ -277,32 +289,84 @@
             this.panel4.Size = new System.Drawing.Size(413, 441);
             this.panel4.TabIndex = 9;
             // 
+            // ogundekullanimadettext
+            // 
+            this.ogundekullanimadettext.Location = new System.Drawing.Point(152, 40);
+            this.ogundekullanimadettext.MaxLength = 1;
+            this.ogundekullanimadettext.Name = "ogundekullanimadettext";
+            this.ogundekullanimadettext.Size = new System.Drawing.Size(100, 20);
+            this.ogundekullanimadettext.TabIndex = 25;
+            this.ogundekullanimadettext.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(17, 43);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(125, 13);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Öğündeki Kullanım Adedi";
+            // 
+            // ogunsayisicombo
+            // 
+            this.ogunsayisicombo.FormattingEnabled = true;
+            this.ogunsayisicombo.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
+            this.ogunsayisicombo.Location = new System.Drawing.Point(152, 8);
+            this.ogunsayisicombo.Name = "ogunsayisicombo";
+            this.ogunsayisicombo.Size = new System.Drawing.Size(100, 21);
+            this.ogunsayisicombo.TabIndex = 23;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(17, 11);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(63, 13);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Öğün Sayısı";
+            // 
+            // ilacbaslangictarihi
+            // 
+            this.ilacbaslangictarihi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ilacbaslangictarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.ilacbaslangictarihi.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.ilacbaslangictarihi.Location = new System.Drawing.Point(152, 111);
+            this.ilacbaslangictarihi.Name = "ilacbaslangictarihi";
+            this.ilacbaslangictarihi.Size = new System.Drawing.Size(100, 20);
+            this.ilacbaslangictarihi.TabIndex = 21;
+            this.ilacbaslangictarihi.Value = new System.DateTime(2023, 5, 28, 14, 35, 30, 0);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(20, 49);
+            this.label7.Location = new System.Drawing.Point(14, 115);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(98, 13);
+            this.label7.Size = new System.Drawing.Size(103, 13);
             this.label7.TabIndex = 9;
-            this.label7.Text = "İlacın Verildiği Tarih";
+            this.label7.Text = "İlacın basladığı Tarih";
             // 
-            // verilenadettextbox
+            // yazilanadettextbox
             // 
-            this.verilenadettextbox.Location = new System.Drawing.Point(133, 10);
-            this.verilenadettextbox.MaxLength = 2;
-            this.verilenadettextbox.Name = "verilenadettextbox";
-            this.verilenadettextbox.Size = new System.Drawing.Size(100, 20);
-            this.verilenadettextbox.TabIndex = 7;
-            this.verilenadettextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verilenadettextbox_KeyPress);
+            this.yazilanadettextbox.Location = new System.Drawing.Point(152, 77);
+            this.yazilanadettextbox.MaxLength = 2;
+            this.yazilanadettextbox.Name = "yazilanadettextbox";
+            this.yazilanadettextbox.Size = new System.Drawing.Size(100, 20);
+            this.yazilanadettextbox.TabIndex = 7;
+            this.yazilanadettextbox.TextChanged += new System.EventHandler(this.verilenadettextbox_TextChanged);
+            this.yazilanadettextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.verilenadettextbox_KeyPress);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 14);
+            this.label6.Location = new System.Drawing.Point(17, 80);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 13);
+            this.label6.Size = new System.Drawing.Size(112, 13);
             this.label6.TabIndex = 0;
-            this.label6.Text = "H-T Verilen İlaç Adedi";
+            this.label6.Text = "H-T Yazılan İlac Adedi";
             // 
             // groupBox1
             // 
@@ -317,31 +381,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Secilen İlac Bilgi";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 23);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(42, 13);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "İlac Adı";
-            // 
-            // Secilanilacadi
-            // 
-            this.Secilanilacadi.Enabled = false;
-            this.Secilanilacadi.Location = new System.Drawing.Point(72, 20);
-            this.Secilanilacadi.Name = "Secilanilacadi";
-            this.Secilanilacadi.Size = new System.Drawing.Size(184, 20);
-            this.Secilanilacadi.TabIndex = 1;
-            // 
-            // Secilenilacdozu
-            // 
-            this.Secilenilacdozu.Enabled = false;
-            this.Secilenilacdozu.Location = new System.Drawing.Point(72, 59);
-            this.Secilenilacdozu.Name = "Secilenilacdozu";
-            this.Secilenilacdozu.Size = new System.Drawing.Size(184, 20);
-            this.Secilenilacdozu.TabIndex = 2;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -351,16 +390,50 @@
             this.label10.TabIndex = 3;
             this.label10.Text = "İlac Dozu";
             // 
-            // kayittarihi
+            // Secilenilacdozu
             // 
-            this.kayittarihi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kayittarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.kayittarihi.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.kayittarihi.Location = new System.Drawing.Point(133, 43);
-            this.kayittarihi.Name = "kayittarihi";
-            this.kayittarihi.Size = new System.Drawing.Size(249, 20);
-            this.kayittarihi.TabIndex = 21;
-            this.kayittarihi.Value = new System.DateTime(2023, 5, 28, 14, 35, 30, 0);
+            this.Secilenilacdozu.Enabled = false;
+            this.Secilenilacdozu.Location = new System.Drawing.Point(72, 59);
+            this.Secilenilacdozu.Name = "Secilenilacdozu";
+            this.Secilenilacdozu.Size = new System.Drawing.Size(184, 20);
+            this.Secilenilacdozu.TabIndex = 2;
+            // 
+            // Secilanilacadi
+            // 
+            this.Secilanilacadi.Enabled = false;
+            this.Secilanilacadi.Location = new System.Drawing.Point(72, 20);
+            this.Secilanilacadi.Name = "Secilanilacadi";
+            this.Secilanilacadi.Size = new System.Drawing.Size(184, 20);
+            this.Secilanilacadi.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 23);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(42, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "İlac Adı";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(14, 152);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(80, 13);
+            this.label13.TabIndex = 26;
+            this.label13.Text = "İlacın bitiş Tarih";
+            // 
+            // ilacbitistarihi
+            // 
+            this.ilacbitistarihi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ilacbitistarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.ilacbitistarihi.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.ilacbitistarihi.Location = new System.Drawing.Point(152, 146);
+            this.ilacbitistarihi.Name = "ilacbitistarihi";
+            this.ilacbitistarihi.Size = new System.Drawing.Size(100, 20);
+            this.ilacbitistarihi.TabIndex = 27;
+            this.ilacbitistarihi.Value = new System.DateTime(2023, 5, 28, 14, 35, 30, 0);
             // 
             // htilactakip
             // 
@@ -417,7 +490,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox verilenadettextbox;
+        private System.Windows.Forms.TextBox yazilanadettextbox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ContextMenuStrip secContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem secToolStripMenuItem;
@@ -427,6 +500,12 @@
         private System.Windows.Forms.TextBox Secilenilacdozu;
         private System.Windows.Forms.TextBox Secilanilacadi;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker kayittarihi;
+        private System.Windows.Forms.DateTimePicker ilacbaslangictarihi;
+        private System.Windows.Forms.TextBox ogundekullanimadettext;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox ogunsayisicombo;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker ilacbitistarihi;
+        private System.Windows.Forms.Label label13;
     }
 }

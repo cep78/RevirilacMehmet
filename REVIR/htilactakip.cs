@@ -152,36 +152,51 @@ namespace REVIR
         private void button1_Click_1(object sender, EventArgs e)
         {
             string sorgu;
-            if (verilenadettextbox.Text == "")
+            if (yazilanadettextbox.Text == "")
             {
                 MessageBox.Show("Öncelikle ilac Adetini Yazınız");
             }
             else
             {
-                if (tcno.TextLength == 11 && hadisoyadi.Text != "" && dosyaid.Text != "" && secilenilacid > 0 && Convert.ToInt32(verilenadettextbox.Text) > 0)
+                if (tcno.TextLength == 11 && hadisoyadi.Text != "" && dosyaid.Text != "" && secilenilacid > 0 && Convert.ToInt32(yazilanadettextbox.Text) > 0)
                 {
                     if (hukumlutabloid > 0) // eski kayıt içerde hükümlü var 
                     {
                         // sorgu = "Insert into depocikis (ilacid,personelid,hukumluid,ilacadet,odaid,kayittarihi) values (@ilacid,@personelid,@hukumluid,@ilacadet,@odaid,@kayittarihi)";
-                        sorgu = "Insert into depocikis (ilacid,personelid,hukumluid,ilacadet,odaid,kayittarihi) values ("+ secilenilacid+","+bilgisinif.personelid+","+ hukumlutabloid+","+verilenadettextbox.Text+","+ odacombobox.SelectedValue.ToString() + ",'"+kayittarihi.Text+"')";
-                        komut = new OleDbCommand(sorgu, baglanti);
+                        //----sorgu = "Insert into depocikis (ilacid,personelid,hukumluid,ilacadet,odaid,kayittarihi) values ("+ secilenilacid+","+bilgisinif.personelid+","+ hukumlutabloid+","+verilenkutuadettextbox.Text+","+ odacombobox.SelectedValue.ToString() + ",'"+kayittarihi.Text+"')";
+                        //--komut = new OleDbCommand(sorgu, baglanti);
+
+
                         //komut.Parameters.AddWithValue("@ilacid", secilenilacid);
                         //komut.Parameters.AddWithValue("@personelid", bilgisinif.personelid);
                         //komut.Parameters.AddWithValue("@ilacadet", Convert.ToInt32(verilenadettextbox.Text));
                         //komut.Parameters.AddWithValue("@kayittarihi", kayittarihi.Text);
                         //komut.Parameters.AddWithValue("@hukumluid", hukumlutabloid.ToString());
                         //komut.Parameters.AddWithValue("@odaid", odacombobox.SelectedValue.ToString());
+
+
+                        sorgu = "Insert into hukumluilacbilgi (Hukumluid,ilacid,baslangictarihi,bitistarihi,ogunsayisi,ogundekiadedi,toplamadet,odaid,personelid)   values (" + hukumlutabloid + "," + secilenilacid + ",'" + ilacbaslangictarihi.Text + "','" + ilacbitistarihi.Text + "',"+ ogunsayisicombo.SelectedItem.ToString()+ "," + ogundekullanimadettext.Text.ToString() + ","+ yazilanadettextbox.Text.ToString()+"," + odacombobox.SelectedValue.ToString() + "," + bilgisinif.personelid+ ")";
+                        komut = new OleDbCommand(sorgu, baglanti);
+
+
                         baglanti.Open();
                         if (komut.ExecuteNonQuery() == 1)//the insert succeded
                         {
-                           
-                            sorgu = "Update ilac Set adet=Adet-" + verilenadettextbox.Text + " where id="+ secilenilacid;
+                            string query2 = "Select @@Identity";
+                            komut.CommandText = query2;
+                            int ID = (int)komut.ExecuteScalar(); 
+                            sorgu = "Update ilac Set adet=Adet+" + yazilanadettextbox.Text + " where id="+ secilenilacid;
                             komut = new OleDbCommand(sorgu, baglanti);
                             if (komut.ExecuteNonQuery() == 1)//the insert succeded
                             {
-                                baglanti.Close();
-                                temizle();
-                                MessageBox.Show("Kayıt Başarı Bir Şekilde Güncellendi");
+                                sorgu = "Insert into depogiris (ilacid,personelid,kayittarihi,hukumluilacbilgiid,ilacadet) values (" + secilenilacid+","+bilgisinif.personelid+", '"+ilacbaslangictarihi.Text+"',"+ID.ToString()+","+ yazilanadettextbox.Text + ")";
+                                komut = new OleDbCommand(sorgu, baglanti);
+                                if (komut.ExecuteNonQuery() == 1)//the insert succeded
+                                {
+                                    baglanti.Close();
+                                    temizle();
+                                    MessageBox.Show("Kayıt Başarı Bir Şekilde Güncellendi");
+                                }
                             }
 
                                 
@@ -218,6 +233,15 @@ namespace REVIR
             dataGridView1.DataSource = tablo2;
             baglanti.Close();
         }
-        
+
+        private void verilenadettextbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }

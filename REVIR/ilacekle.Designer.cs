@@ -136,6 +136,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.Enabled = false;
             this.label14.Location = new System.Drawing.Point(6, 23);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(49, 13);
@@ -146,6 +147,7 @@
             // 
             this.ilacadet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ilacadet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ilacadet.Enabled = false;
             this.ilacadet.Location = new System.Drawing.Point(72, 21);
             this.ilacadet.MaxLength = 30;
             this.ilacadet.Name = "ilacadet";
@@ -171,12 +173,12 @@
             this.ilaceklegridmenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.seToolStripMenuItem});
             this.ilaceklegridmenu.Name = "ilaceklegridmenu";
-            this.ilaceklegridmenu.Size = new System.Drawing.Size(153, 48);
+            this.ilaceklegridmenu.Size = new System.Drawing.Size(93, 26);
             // 
             // seToolStripMenuItem
             // 
             this.seToolStripMenuItem.Name = "seToolStripMenuItem";
-            this.seToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.seToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.seToolStripMenuItem.Text = "Seç";
             this.seToolStripMenuItem.Click += new System.EventHandler(this.secToolStripMenuItem_Click);
             // 

@@ -61,18 +61,18 @@ namespace REVIR
                 {
                     if (ilacadi.Text != "" && doz.Text != "") //ilac adını yazdı mı 
                     {                        
-                        sorgu = "Insert into ilac (ad,doz,adet) values (@ad,@doz,@adet)";
+                        sorgu = "Insert into ilac (ad,doz) values (@ad,@doz)";
                         komut = new OleDbCommand(sorgu, baglanti);
                         komut.Parameters.AddWithValue("@ad", ilacadi.Text);
                         komut.Parameters.AddWithValue("@doz", doz.Text);
-                        komut.Parameters.AddWithValue("@adet", Convert.ToInt32(ilacadet.Text));
+                        //komut.Parameters.AddWithValue("@adet", Convert.ToInt32(ilacadet.Text));
                     }
 
                 }
                 else if(ilacadi.Text!="" && doz.Text!="" && secilenilacid>0)// listede var update yapılacak  - ilaç daha önce listede var o yüzden güncelleme işlemi yapılıyor
                 {
-                    sorgu = "Update ilac SET adet=adet+"+ ilacadet.Text +"  where id="+secilenilacid;
-                    komut = new OleDbCommand(sorgu, baglanti);
+                 //   sorgu = "Update ilac SET adet=adet+"+ ilacadet.Text +"  where id="+secilenilacid;
+                //    komut = new OleDbCommand(sorgu, baglanti);
                    
 
                 }
@@ -88,14 +88,14 @@ namespace REVIR
                     komut.CommandText = "Select @@Identity";
                     id = Convert.ToInt32(komut.ExecuteScalar());
                 }
-                sorgu = "Insert into depogiris (ilacid,personelid,ilacadet,kayittarihi) values (@ilacid,@personelid,@ilacadet,@kayittarihi)";
-                komut = new OleDbCommand(sorgu, baglanti);
-                //komut.Parameters.AddWithValue("@esirano", Convert.ToInt32(esirano.Text));
-                komut.Parameters.AddWithValue("@ilacid", id);//ilac id gelecek 
-                komut.Parameters.AddWithValue("@personelid", bilgisinif.personelid);
-                komut.Parameters.AddWithValue("@ilacadet", Convert.ToInt32(ilacadet.Text));
-                komut.Parameters.AddWithValue("@kayittarihi", kayittarihi.Text);
-                komut.ExecuteNonQuery();
+                //sorgu = "Insert into depogiris (ilacid,personelid,ilacadet,kayittarihi) values (@ilacid,@personelid,@ilacadet,@kayittarihi)";
+                //komut = new OleDbCommand(sorgu, baglanti);
+                ////komut.Parameters.AddWithValue("@esirano", Convert.ToInt32(esirano.Text));
+                //komut.Parameters.AddWithValue("@ilacid", id);//ilac id gelecek 
+                //komut.Parameters.AddWithValue("@personelid", bilgisinif.personelid);
+                //komut.Parameters.AddWithValue("@ilacadet", Convert.ToInt32(ilacadet.Text));
+                //komut.Parameters.AddWithValue("@kayittarihi", kayittarihi.Text);
+                //komut.ExecuteNonQuery();
 
                 
                 MessageBox.Show("veri tabanı kaydı yapıldı");
