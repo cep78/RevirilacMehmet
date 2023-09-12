@@ -24,6 +24,7 @@ namespace REVIR
         DataSet ds;
         int secilenilacid;
         int hukumlutabloid;
+        bool yenitc;
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -54,14 +55,16 @@ namespace REVIR
                         hukumlubilgipanel.Enabled = true;
                         MessageBox.Show("Yeni Kayıt Giriniz TC No dan emin olunuz");
                         tcno.Text = hukumlutctext.Text;
+                        yenitc = true;
                     }
                     else if (ds.Tables[0].Rows.Count == 1)
                     {
-                        DataRow satir = ds.Tables[0].Rows[0];
-                        tcno.Text = satir["tcno"].ToString();
+                        DataRow satir   = ds.Tables[0].Rows[0];
+                        tcno.Text       = satir["tcno"].ToString();
                         hadisoyadi.Text = satir["adisoyadi"].ToString();
-                        dosyaid.Text = satir["cikno"].ToString();
-                        hukumlutabloid = Convert.ToInt32(satir["id"].ToString());
+                        dosyaid.Text    = satir["cikno"].ToString();
+                        hukumlutabloid  = Convert.ToInt32(satir["id"].ToString());
+                        yenitc          = false;
                     }
 
 
@@ -105,6 +108,7 @@ namespace REVIR
             da.Fill(tablo2);
             dataGridView1.DataSource = tablo2;
             baglanti.Close();
+            yenitc = false;
         }
 
         private void htilactakip_FormClosed(object sender, FormClosedEventArgs e)
@@ -152,7 +156,7 @@ namespace REVIR
         private void button1_Click_1(object sender, EventArgs e)
         {
             string sorgu;
-            if (yazilanadettextbox.Text == "")
+            if (yazilanadettextbox.Text == ""|| ogundekullanimadettext.Text=="")
             {
                 MessageBox.Show("Öncelikle ilac Adetini Yazınız");
             }
@@ -160,26 +164,39 @@ namespace REVIR
             {
                 if (tcno.TextLength == 11 && hadisoyadi.Text != "" && dosyaid.Text != "" && secilenilacid > 0 && Convert.ToInt32(yazilanadettextbox.Text) > 0)
                 {
+                    baglanti.Open();
+                    if (yenitc)
+                    {
+                        sorgu = "Insert into hukumlu(cikno,tcno,adisoyadi) values ('" + dosyaid.Text + "','" + tcno.Text + "', '" + hadisoyadi.Text + "') ";
+                        komut = new OleDbCommand(sorgu, baglanti);
+                      
+                        if (komut.ExecuteNonQuery() == 1)//the insert succeded
+                        {
+                            string query2 = "Select @@Identity";
+                            komut.CommandText = query2;
+                            hukumlutabloid = (int)komut.ExecuteScalar();
+                            yenitc = false;
+                            MessageBox.Show(" Yeni Hükümlü Kaydı Yapıldı");
+                        }
+                    }
+
                     if (hukumlutabloid > 0) // eski kayıt içerde hükümlü var 
                     {
                         // sorgu = "Insert into depocikis (ilacid,personelid,hukumluid,ilacadet,odaid,kayittarihi) values (@ilacid,@personelid,@hukumluid,@ilacadet,@odaid,@kayittarihi)";
                         //----sorgu = "Insert into depocikis (ilacid,personelid,hukumluid,ilacadet,odaid,kayittarihi) values ("+ secilenilacid+","+bilgisinif.personelid+","+ hukumlutabloid+","+verilenkutuadettextbox.Text+","+ odacombobox.SelectedValue.ToString() + ",'"+kayittarihi.Text+"')";
                         //--komut = new OleDbCommand(sorgu, baglanti);
-
-
                         //komut.Parameters.AddWithValue("@ilacid", secilenilacid);
                         //komut.Parameters.AddWithValue("@personelid", bilgisinif.personelid);
                         //komut.Parameters.AddWithValue("@ilacadet", Convert.ToInt32(verilenadettextbox.Text));
                         //komut.Parameters.AddWithValue("@kayittarihi", kayittarihi.Text);
                         //komut.Parameters.AddWithValue("@hukumluid", hukumlutabloid.ToString());
                         //komut.Parameters.AddWithValue("@odaid", odacombobox.SelectedValue.ToString());
-
-
+                       
                         sorgu = "Insert into hukumluilacbilgi (Hukumluid,ilacid,baslangictarihi,bitistarihi,ogunsayisi,ogundekiadedi,toplamadet,odaid,personelid)   values (" + hukumlutabloid + "," + secilenilacid + ",'" + ilacbaslangictarihi.Text + "','" + ilacbitistarihi.Text + "',"+ ogunsayisicombo.SelectedItem.ToString()+ "," + ogundekullanimadettext.Text.ToString() + ","+ yazilanadettextbox.Text.ToString()+"," + odacombobox.SelectedValue.ToString() + "," + bilgisinif.personelid+ ")";
                         komut = new OleDbCommand(sorgu, baglanti);
 
 
-                        baglanti.Open();
+                        //baglanti.Open();
                         if (komut.ExecuteNonQuery() == 1)//the insert succeded
                         {
                             string query2 = "Select @@Identity";

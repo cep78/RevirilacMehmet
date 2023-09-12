@@ -29,15 +29,20 @@ namespace REVIR
         private void Kaydetbuton_Click(object sender, EventArgs e)
         {
             string sorgu;
+            if (true)
+            {
 
+            }
             baglanti.Open();
             for (int i = 0; i < dataGridView3.Rows.Count; i++)
             {
 
-                string ilacid = dataGridView3.Rows[i].Cells["ilacid"].ToString();
-                string hukumluid = dataGridView3.Rows[i].Cells["hukumluid"].ToString();
-                string ilacadet = dataGridView3.Rows[i].Cells["ilacadet"].ToString();
-                string odaid = dataGridView3.Rows[i].Cells["odaid"].ToString();
+                string ilacid = dataGridView3.Rows[i].Cells["ilac_id"].Value.ToString();
+                string hukumluid = dataGridView3.Rows[i].Cells["Hukumlu_id"].Value.ToString();
+                string ilacadet = dataGridView3.Rows[i].Cells["Kullanim_Adeti"].Value.ToString();
+                string odaid = dataGridView3.Rows[i].Cells["Oda_id"].Value.ToString();
+               
+
                 sorgu = "Insert into depocikis (personelid,ilacid,hukumluid,ilacadet,odaid) values (" + bilgisinif.personelid + "," + ilacid + "," + hukumluid + "," + ilacadet + "," + odaid + ")";
                 komut = new OleDbCommand(sorgu, baglanti);
                 if (komut.ExecuteNonQuery() != 1)//the insert succeded
@@ -89,7 +94,7 @@ namespace REVIR
             gridtablo.Columns.Add("Oda_id", typeof(int));
             gridtablo.Columns.Add("Oda_Adi", typeof(string));
 
-            gridtablo.Columns.Add("Kullanim_Adeti", typeof(string));
+            gridtablo.Columns.Add("Kullanim_Adeti", typeof(int));
 
 
 
