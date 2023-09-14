@@ -34,7 +34,8 @@ namespace REVIR
 
             }
             baglanti.Open();
-            for (int i = 0; i < dataGridView3.Rows.Count; i++)
+            int adimsay = dataGridView3.Rows.Count - 1;
+            for (int i = 0; i < dataGridView3.Rows.Count-1; i++)
             {
 
                 string ilacid = dataGridView3.Rows[i].Cells["ilac_id"].Value.ToString();
@@ -47,9 +48,14 @@ namespace REVIR
                 komut = new OleDbCommand(sorgu, baglanti);
                 if (komut.ExecuteNonQuery() != 1)//the insert succeded
                 {
+                    adimsay--;
                     MessageBox.Show("Kayıtta Hata Var");
                     break;
                 }
+            }
+            if (dataGridView3.Rows.Count - 1==adimsay)
+            {
+                MessageBox.Show("Kayıtlar Başarılı bir şekilde Kaydedildi");
             }
         }
 
@@ -172,5 +178,20 @@ namespace REVIR
             }
             /// mause ile sağ tıklanınca satır seçme kodu
         }
+
+        private void silbuton_Click(object sender, EventArgs e)
+        {
+            if (dataGridView3.SelectedRows.Count > 0)
+            { //seçili satırı siliyoruz.
+                dataGridView3.Rows.RemoveAt(dataGridView3.SelectedRows[0].Index);
+            }
+            else
+            {
+                MessageBox.Show("Lütfen Silinecek Satırı Seçin!");
+
+            }
+        }
+
+
     }
 }

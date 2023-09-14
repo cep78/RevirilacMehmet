@@ -33,8 +33,10 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.secToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.secToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.Eklebuton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.silbuton = new System.Windows.Forms.Button();
             this.Kaydetbuton = new System.Windows.Forms.Button();
             this.odacombobox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,13 +47,11 @@
             this.secilenhukumluidtextbox = new System.Windows.Forms.TextBox();
             this.secilenilacidtextbox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.secToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -90,6 +90,20 @@
             this.dataGridView2.TabIndex = 1;
             this.dataGridView2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView2_MouseDown);
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.secToolStripMenuItem1});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(93, 26);
+            // 
+            // secToolStripMenuItem1
+            // 
+            this.secToolStripMenuItem1.Name = "secToolStripMenuItem1";
+            this.secToolStripMenuItem1.Size = new System.Drawing.Size(92, 22);
+            this.secToolStripMenuItem1.Text = "Sec";
+            this.secToolStripMenuItem1.Click += new System.EventHandler(this.secToolStripMenuItem1_Click);
+            // 
             // Eklebuton
             // 
             this.Eklebuton.Location = new System.Drawing.Point(762, 57);
@@ -100,14 +114,15 @@
             this.Eklebuton.UseVisualStyleBackColor = true;
             this.Eklebuton.Click += new System.EventHandler(this.Eklebuton_Click);
             // 
-            // button2
+            // silbuton
             // 
-            this.button2.Location = new System.Drawing.Point(762, 133);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 53);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.silbuton.Location = new System.Drawing.Point(762, 133);
+            this.silbuton.Name = "silbuton";
+            this.silbuton.Size = new System.Drawing.Size(75, 53);
+            this.silbuton.TabIndex = 3;
+            this.silbuton.Text = "Secili Satır Sil";
+            this.silbuton.UseVisualStyleBackColor = true;
+            this.silbuton.Click += new System.EventHandler(this.silbuton_Click);
             // 
             // Kaydetbuton
             // 
@@ -180,6 +195,7 @@
             // 
             // secilenilacidtextbox
             // 
+            this.secilenilacidtextbox.Enabled = false;
             this.secilenilacidtextbox.Location = new System.Drawing.Point(588, 371);
             this.secilenilacidtextbox.Name = "secilenilacidtextbox";
             this.secilenilacidtextbox.Size = new System.Drawing.Size(152, 20);
@@ -193,20 +209,6 @@
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 13;
             this.label4.Text = "İlaç id";
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.secToolStripMenuItem1});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(93, 26);
-            // 
-            // secToolStripMenuItem1
-            // 
-            this.secToolStripMenuItem1.Name = "secToolStripMenuItem1";
-            this.secToolStripMenuItem1.Size = new System.Drawing.Size(92, 22);
-            this.secToolStripMenuItem1.Text = "Sec";
-            this.secToolStripMenuItem1.Click += new System.EventHandler(this.secToolStripMenuItem1_Click);
             // 
             // gunlukilac
             // 
@@ -223,7 +225,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.odacombobox);
             this.Controls.Add(this.Kaydetbuton);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.silbuton);
             this.Controls.Add(this.Eklebuton);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
@@ -234,8 +236,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,7 +248,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button Eklebuton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button silbuton;
         private System.Windows.Forms.Button Kaydetbuton;
         private System.Windows.Forms.ComboBox odacombobox;
         private System.Windows.Forms.Label label1;
