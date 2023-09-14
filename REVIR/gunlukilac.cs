@@ -26,8 +26,14 @@ namespace REVIR
         int secilenilacid;
         int hukumlutabloid;
         DataTable gridtablo = new DataTable();
+        DataTable hatalitablo = new DataTable();
+        DataGridView datagridview = new DataGridView();
         private void Kaydetbuton_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewColumn col in dataGridView3.Columns)
+            {
+                hataliverigrid.Columns.Add((DataGridViewColumn)col.Clone());
+            }
             string sorgu;
             if (true)
             {
@@ -35,28 +41,53 @@ namespace REVIR
             }
             baglanti.Open();
             int adimsay = dataGridView3.Rows.Count - 1;
+
             for (int i = 0; i < dataGridView3.Rows.Count-1; i++)
             {
-
-                string ilacid = dataGridView3.Rows[i].Cells["ilac_id"].Value.ToString();
-                string hukumluid = dataGridView3.Rows[i].Cells["Hukumlu_id"].Value.ToString();
-                string ilacadet = dataGridView3.Rows[i].Cells["Kullanim_Adeti"].Value.ToString();
-                string odaid = dataGridView3.Rows[i].Cells["Oda_id"].Value.ToString();
-               
-
-                sorgu = "Insert into depocikis (personelid,ilacid,hukumluid,ilacadet,odaid) values (" + bilgisinif.personelid + "," + ilacid + "," + hukumluid + "," + ilacadet + "," + odaid + ")";
-                komut = new OleDbCommand(sorgu, baglanti);
-                if (komut.ExecuteNonQuery() != 1)//the insert succeded
+                
+                try
                 {
-                    adimsay--;
-                    MessageBox.Show("Kayıtta Hata Var");
-                    break;
+                    string ilacid       = dataGridView3.Rows[i].Cells["ilac_id"].Value.ToString();
+                    string hukumluid    = dataGridView3.Rows[i].Cells["Hukumlu_id"].Value.ToString();
+                    string ilacadet     = dataGridView3.Rows[i].Cells["Kullanim_Adeti"].Value.ToString();
+                    string odaid        = dataGridView3.Rows[i].Cells["Oda_id"].Value.ToString();
+                    sorgu               = "Insert into depocikis (personelid,ilacid,hukumluid,ilacadet,odaid) values (" + bilgisinif.personelid + "," + ilacid + "," + hukumluid + "," + ilacadet + "," + odaid + ")";
+                    komut               = new OleDbCommand(sorgu, baglanti);
+                    if (komut.ExecuteNonQuery() != 1)//the insert succeded
+                    {
+                        adimsay--;
+                        MessageBox.Show("Kayıtta Hata Var");                    
+                    }
+
                 }
+                catch (Exception)
+                {
+                    DataGridViewRow row     = new DataGridViewRow();
+                    row                     = (DataGridViewRow)dataGridView3.Rows[i].Clone();
+                    int intColIndex         = 0;
+                    foreach (DataGridViewCell cell in dataGridView3.Rows[i].Cells)
+                    {
+                        row.Cells[intColIndex].Value = cell.Value;
+                        intColIndex++;
+                    }
+                    adimsay--;
+                    hataliverigrid.Rows.Add(row);
+                }
+                
+               
+               
             }
             if (dataGridView3.Rows.Count - 1==adimsay)
             {
                 MessageBox.Show("Kayıtlar Başarılı bir şekilde Kaydedildi");
+                hataliverigrid.Enabled = false;
             }
+            else if (hataliverigrid.Rows.Count>0)
+            {
+                hataliverigrid.Visible = true;
+            }
+
+            baglanti.Close();
         }
 
         private void gunlukilac_FormClosed(object sender, FormClosedEventArgs e)
@@ -102,26 +133,34 @@ namespace REVIR
 
             gridtablo.Columns.Add("Kullanim_Adeti", typeof(int));
 
-
+         
 
         }
 
         private void Eklebuton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DataRow satir = gridtablo.NewRow();
+                satir[0] = secilenhukumluidtextbox.Text;
+                satir[1] = dataGridView1.SelectedRows[0].Cells["tcno"].Value.ToString();
+                satir[2] = secilenhukumluaditextbox.Text;
 
-            DataRow satir = gridtablo.NewRow();
-            satir[0]    = secilenhukumluidtextbox.Text;
-            satir[1]    = dataGridView1.SelectedRows[0].Cells["tcno"].Value.ToString();
-            satir[2]    = secilenhukumluaditextbox.Text;
+                satir[3] = dataGridView2.SelectedRows[0].Cells["id"].Value.ToString();
+                satir[4] = dataGridView2.SelectedRows[0].Cells["ad"].Value.ToString();
+                satir[5] = dataGridView2.SelectedRows[0].Cells["doz"].Value.ToString();
 
-            satir[3]    = dataGridView2.SelectedRows[0].Cells["id"].Value.ToString();
-            satir[4]    = dataGridView2.SelectedRows[0].Cells["ad"].Value.ToString();
-            satir[5]    = dataGridView2.SelectedRows[0].Cells["doz"].Value.ToString();
+                satir[6] = odacombobox.SelectedValue.ToString();
+                satir[7] = odacombobox.Text.ToString();
+                gridtablo.Rows.Add(satir);
+                dataGridView3.DataSource = gridtablo.DefaultView;
+            }
+            catch (Exception)
+            {
 
-            satir[6]    = odacombobox.SelectedValue.ToString();
-            satir[7]    = odacombobox.Text.ToString();
-            gridtablo.Rows.Add(satir);
-            dataGridView3.DataSource = gridtablo.DefaultView;
+                //throw;
+            }
+           
         }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)

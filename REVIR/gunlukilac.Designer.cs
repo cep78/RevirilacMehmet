@@ -47,11 +47,13 @@
             this.secilenhukumluidtextbox = new System.Windows.Forms.TextBox();
             this.secilenilacidtextbox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.hataliverigrid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hataliverigrid)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -84,7 +86,7 @@
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.ContextMenuStrip = this.contextMenuStrip2;
-            this.dataGridView2.Location = new System.Drawing.Point(494, 35);
+            this.dataGridView2.Location = new System.Drawing.Point(446, 35);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(246, 313);
             this.dataGridView2.TabIndex = 1;
@@ -106,7 +108,7 @@
             // 
             // Eklebuton
             // 
-            this.Eklebuton.Location = new System.Drawing.Point(762, 57);
+            this.Eklebuton.Location = new System.Drawing.Point(698, 52);
             this.Eklebuton.Name = "Eklebuton";
             this.Eklebuton.Size = new System.Drawing.Size(75, 53);
             this.Eklebuton.TabIndex = 2;
@@ -116,7 +118,7 @@
             // 
             // silbuton
             // 
-            this.silbuton.Location = new System.Drawing.Point(762, 133);
+            this.silbuton.Location = new System.Drawing.Point(698, 133);
             this.silbuton.Name = "silbuton";
             this.silbuton.Size = new System.Drawing.Size(75, 53);
             this.silbuton.TabIndex = 3;
@@ -126,9 +128,9 @@
             // 
             // Kaydetbuton
             // 
-            this.Kaydetbuton.Location = new System.Drawing.Point(1028, 370);
+            this.Kaydetbuton.Location = new System.Drawing.Point(961, 358);
             this.Kaydetbuton.Name = "Kaydetbuton";
-            this.Kaydetbuton.Size = new System.Drawing.Size(101, 54);
+            this.Kaydetbuton.Size = new System.Drawing.Size(176, 36);
             this.Kaydetbuton.TabIndex = 4;
             this.Kaydetbuton.Text = "KAYDET";
             this.Kaydetbuton.UseVisualStyleBackColor = true;
@@ -137,7 +139,7 @@
             // odacombobox
             // 
             this.odacombobox.FormattingEnabled = true;
-            this.odacombobox.Location = new System.Drawing.Point(574, 8);
+            this.odacombobox.Location = new System.Drawing.Point(188, 6);
             this.odacombobox.Name = "odacombobox";
             this.odacombobox.Size = new System.Drawing.Size(166, 21);
             this.odacombobox.TabIndex = 5;
@@ -145,7 +147,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(509, 11);
+            this.label1.Location = new System.Drawing.Point(123, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 6;
@@ -154,9 +156,9 @@
             // dataGridView3
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(855, 35);
+            this.dataGridView3.Location = new System.Drawing.Point(790, 35);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(349, 313);
+            this.dataGridView3.Size = new System.Drawing.Size(543, 313);
             this.dataGridView3.TabIndex = 7;
             // 
             // label2
@@ -210,11 +212,21 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "İlaç id";
             // 
+            // hataliverigrid
+            // 
+            this.hataliverigrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.hataliverigrid.Enabled = false;
+            this.hataliverigrid.Location = new System.Drawing.Point(790, 419);
+            this.hataliverigrid.Name = "hataliverigrid";
+            this.hataliverigrid.Size = new System.Drawing.Size(543, 163);
+            this.hataliverigrid.TabIndex = 14;
+            // 
             // gunlukilac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1345, 607);
+            this.Controls.Add(this.hataliverigrid);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.secilenilacidtextbox);
             this.Controls.Add(this.secilenhukumluidtextbox);
@@ -238,6 +250,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hataliverigrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,5 +276,6 @@
         private System.Windows.Forms.ToolStripMenuItem secToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem secToolStripMenuItem1;
+        private System.Windows.Forms.DataGridView hataliverigrid;
     }
 }
